@@ -84,7 +84,7 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/favicon.png
+favicon: http://static.misaka-net-lwc.top/favicon.jpg
 
 # Avatar (頭像)
 avatar:
@@ -92,11 +92,11 @@ avatar:
   effect: false
 
 # the banner image of home page
-index_img: /img/1.jpg
+index_img: https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1.jpg
 # index_img:  http://static.misaka-net-lwc.top/miku.jpg
 
 # if the banner of page not setting, it will show the top_img
-default_top_img: /img/1.jpg
+default_top_img: https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1.jpg
 
 # the banner image of archive page
 archive_img:
@@ -602,7 +602,7 @@ aside:
       link: https://github.com/Yukilwc
   card_announcement:
     enable: true
-    content: This is my Blog
+    content: 幻想乡
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
