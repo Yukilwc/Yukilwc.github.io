@@ -10,3 +10,7 @@ cover: https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/51842023_
 # 概要
 ##  意义
 ### 起源
+
+# 安装
+## 按需加载的配置
+## 多语言
