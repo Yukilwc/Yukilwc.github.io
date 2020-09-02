@@ -50,3 +50,17 @@ Vue.use(Button)
 Vue.use(Select)
 ```
 ## 多语言
+
+# 问题汇总
+## select组件多选问题
+在使用 select的多选功能时，需要初始化select框，为其注入一个初始的数组，发现用数组为select model赋值后，出现了选择，删除的失效问题，代码和解决如下。
+
+首选明确一些参数的意义:
+1. el-select
+   * v-model: 是双向绑定值，选择后，会将选择的option的value字段，写入对应data中，其可以是字符串，也可以是对象。当多选模式下，其映射一个数组。 
+2. el-option
+### 问题代码
+``` html
+
+```
+### 解决
