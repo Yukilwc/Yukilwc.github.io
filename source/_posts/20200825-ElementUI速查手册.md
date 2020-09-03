@@ -50,17 +50,64 @@ Vue.use(Button)
 Vue.use(Select)
 ```
 ## 多语言
+# 输入类组件
+## select
+首选明确一些参数的意义:
+### 参数
+1. el-select
+  * v-model: 是双向绑定值，选择后，会将选择的option的value字段，写入对应data中，其可以是字符串，也可以是对象。当多选模式下，其映射一个数组。 
+2. el-option
+  * value: 是选中后，注入到model中的值，其可以是对象。
+  * label：是选中后，填充到输入框中的文本。
+3. slot: 是显示在下拉列表中的项.
+### 多选
+``` html
+      <el-select v-model="model" @change="select" multiple>
+        <el-option
+          v-for="(item,index) in options"
+          :key="index"
+          :label="item.label"
+          :value="item"
+        >{{item.listItem}}
+        </el-option>
+        <div slot="empty">空</div>
+      </el-select>
+```
+``` javascript
+export default {
+  data() {
+    return {
+      ruleForm: {
+        model: [],
+      },
+      options: [
+        {
+          label: "label1",
+          listItem: "listItem1",
+          value: "value1",
+        },
+        {
+          label: "label2",
+          listItem: "listItem2",
+          value: "value2",
+        },
+     ],
+    };
+  },
+  mounted() {
+    // 此处初始化model数据,对数组操作易产生问题，推荐使用this.$set
+    this.ruleForm.model.push({
+      label: "label2",
+      listItem: "listItem2",
+      value: "value2",
+    });
+  },
+  methods: {
+    select(e) {
+      console.log("触发选中", e, this.model);
+    },
+  },
+};
+```
 
 # 问题汇总
-## select组件多选问题
-在使用 select的多选功能时，需要初始化select框，为其注入一个初始的数组，发现用数组为select model赋值后，出现了选择，删除的失效问题，代码和解决如下。
-
-首选明确一些参数的意义:
-1. el-select
-   * v-model: 是双向绑定值，选择后，会将选择的option的value字段，写入对应data中，其可以是字符串，也可以是对象。当多选模式下，其映射一个数组。 
-2. el-option
-### 问题代码
-``` html
-
-```
-### 解决
