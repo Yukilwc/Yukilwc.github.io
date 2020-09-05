@@ -92,11 +92,12 @@ avatar:
   effect: false
 
 # the banner image of home page
-index_img: https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1.jpg
+index_img: https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/83514063_p0.webp
+
 # index_img:  http://static.misaka-net-lwc.top/miku.jpg
 
 # if the banner of page not setting, it will show the top_img
-default_top_img: https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1.jpg
+default_top_img: https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/83514063_p0.webp
 
 # the banner image of archive page
 archive_img:
