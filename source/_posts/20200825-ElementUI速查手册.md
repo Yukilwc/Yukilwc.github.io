@@ -5,7 +5,7 @@ categories:
 tags: 
 - ElementUI UI框架
 description: 作为快速查询，复制粘贴模板用的手册
-cover: https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/51842023_p0.jpg
+cover: https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/84095735_p0_master1200.webp
 ---
 # 概要
 ##  意义

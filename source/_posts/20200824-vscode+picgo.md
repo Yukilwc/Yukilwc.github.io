@@ -1,17 +1,26 @@
 ---
-title: 'vscode+picgo+阿里云OSS搭建博客图床'
+title: 'VsCode+Picgo+阿里云OSS搭建博客图床'
 categories:
 - 运维
 tags: 
 - OSS
 - 博客工具
 description: 记录基本的流程配置与一些需要注意的点
-cover: https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/58954507_p0.jpg
-
+cover: https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1599308368179.webp
 ---
 # 概要
-## 概要
+## 意义
+图片是博客文章不可缺少的表现元素，没有图片的文章列表，文章内容，总给人干涩单调感。
+而使用markdown编写博客时，需要以超链接的形式，插入图片。
+最开始是打算将图片存放在博客本身编译的代码中，如static文件夹，发现带来的问题很多
+1. 大量的图片，如何管理和存储
+2. 如何在写文章时，快速，高效，无缝的插入图片
+3. 每次的发布，除非是使用git发布，否则代码包过大，并且损耗购买的轻量应用服务器的资源。
 
 ## 阿里云OSS购买与配置
 ### key的分配
 ### 防盗链
+# 后续计划
+## 图片上传过程中的自动无损压缩
+在本地压缩，还是在阿里云压缩.
+选择的格式,webp m6?
