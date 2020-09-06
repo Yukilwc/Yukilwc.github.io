@@ -110,4 +110,82 @@ export default {
 };
 ```
 
+# 展示类组件
+## 表格
+### 模板
+``` html
+<el-table
+  ref="table"
+  :data="tableData"
+  height="250"
+  border
+  stripe
+  highlight-current-row
+  :row-class-name="tableRowClassName"
+  @current-change="handleCurrentChange"
+  @selection-change="handleSelectionChange"
+  @row-dblclick=""
+  @row-click=""
+  @sort-change=""
+  >
+  <!-- 多选列 -->
+  <el-table-column
+    type="selection"
+  >
+  </el-table-column>
+ 
+  <!-- 序号列 -->
+  <el-table-column
+    type="index"
+  >
+  </el-table-column>
+  <el-table-column
+    label="列名"
+    width="100"
+    min-width="100"
+    show-overflow-tooltip
+    sortable="custom"
+    fixed
+    >
+    <template v-slot="scope">
+      <span>{{scope.row.name}}</span>
+    </template>
+  </el-table-column>
+</el-table>
+```
+
+``` javascript
+export default {
+  mathods: {
+    tableRowClassName({row,rowIndex}) {
+      return 'common-blue-row'
+    },
+     handleCurrentChange() {
+
+     },
+    handleSelectionChange() {
+
+    },
+    //  table实例方法
+    tableInstance() {
+      // 设定当前单选的行，如果为空，则取消选择
+      this.$refs.table.setCurrentRow(row)
+      // 添加选中行
+      this.$refs.table.toggleRowSelection(row)
+      // 清空选中
+      this.$refs.table.clearSelection()
+
+    }
+
+  }
+}
+```
+
+### 一些参数解析
+### 事项
+* 如果相对单元格添加样式控制，建议在template中添加，当然也可以使用
+* 一些浏览器下列边框对不齐问题
+* 多级表头： 只需要用el-table-column嵌套el-table-column即可实现
+* 合并单元格时，注意一方面要把目标单元格扩充，另一方面要把被占据的单元格归零处理，否则会发生错乱。
+* 未记录实践功能： 筛选功能,展开行功能,树形数据，懒加载，表尾合计行
 # 问题汇总
