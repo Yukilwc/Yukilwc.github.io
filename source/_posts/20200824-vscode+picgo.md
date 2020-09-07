@@ -125,7 +125,7 @@ webp有出色的压缩比率,如下为百分之90品质的压缩
 ## 推荐的压缩工具
 当前使用一个在线无需上传的压缩网站[webp2jpg](https://renzhezhilu.gitee.io/webp2jpg-online/), 其[github地址](https://github.com/renzhezhilu/webp2jpg-online)
 
-![webp2jpg](https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/8cfeb3122ddc53dafb3129092b3bfaf.webp)
+![微信截图_20200908005217](https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/微信截图_20200908005217.webp)
 
 # 后续计划
 ## 图片上传过程中的自动压缩的vscode插件
