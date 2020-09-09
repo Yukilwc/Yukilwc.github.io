@@ -128,4 +128,5 @@ webp有出色的压缩比率,如下为百分之90品质的压缩
 ![微信截图_20200908005217](https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/微信截图_20200908005217.webp)
 
 # 后续计划
+## gif录制工具
 ## 图片上传过程中的自动压缩的vscode插件
