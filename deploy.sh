@@ -6,6 +6,7 @@ git push origin butterfly
 
 hexo generate
 hexo deploy
+pause
 
 
 cd -
