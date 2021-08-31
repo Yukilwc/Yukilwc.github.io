@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VsCode+Picgo+阿里云OSS搭建博客图床 | Misaka Net</title><meta name="keywords" content="OSS,博客工具"><meta name="author" content="Misaka Lee"><meta name="copyright" content="Misaka Lee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="记录基本的流程配置与一些需要注意的点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VsCode+Picgo+阿里云OSS搭建博客图床">
+<meta property="og:url" content="http://blog.misaka-net-lwc.top/2021/08/31/20200824-vscode+picgo/index.html">
+<meta property="og:site_name" content="Misaka Net">
+<meta property="og:description" content="记录基本的流程配置与一些需要注意的点">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1599308368179.webp">
+<meta property="article:published_time" content="2021-08-31T16:38:14.405Z">
+<meta property="article:modified_time" content="2021-08-31T16:38:14.405Z">
+<meta property="article:author" content="Misaka Lee">
+<meta property="article:tag" content="OSS">
+<meta property="article:tag" content="博客工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1599308368179.webp"><link rel="shortcut icon" href="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/logo.png"><link rel="canonical" href="http://blog.misaka-net-lwc.top/2021/08/31/20200824-vscode+picgo/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-08-31 16:38:14'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Music"><i class="fa-fw /music/"></i><span> 0</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1599308368179.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Misaka Net</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Music"><i class="fa-fw /music/"></i><span> 0</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">VsCode+Picgo+阿里云OSS搭建博客图床</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-08-31T16:38:14.405Z" title="发表于 2021-08-31 16:38:14">2021-08-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-08-31T16:38:14.405Z" title="更新于 2021-08-31 16:38:14">2021-08-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="VsCode+Picgo+阿里云OSS搭建博客图床"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><h2 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h2><p>图片是博客文章不可缺少的表现元素，没有图片的文章列表，文章内容，总给人干涩单调感。<br>而使用markdown编写博客时，需要以超链接的形式，插入图片。<br>最开始是打算将图片存放在博客本身编译的代码中，如static文件夹，发现带来的问题很多</p>
+<ol>
+<li>大量的图片，难以管理和存储</li>
+<li>在写文章时，无法快速，高效，无缝的插入图片</li>
+<li>每次的发布，除非是使用git发布，否则代码包过大，并且损耗购买的轻量应用服务器的资源。</li>
+</ol>
+<p>于是为了在写文章时快速方便的插入图片，以此为目的，搭建Vscode+Picgo+阿里云OSS的图片上传。</p>
+<h1 id="阿里云OSS购买与配置"><a href="#阿里云OSS购买与配置" class="headerlink" title="阿里云OSS购买与配置"></a>阿里云OSS购买与配置</h1><h2 id="购买"><a href="#购买" class="headerlink" title="购买"></a>购买</h2><p>因为轻量应用服务器是在阿里云购买了，因此OSS服务也选择阿里云。<br>打开阿里云官网，存储与网络，对象存储OSS，进入购买页,如下图<br><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200905234810.webp" alt="订单选择"></p>
+<p>参照购买页，有些需要注意的地方</p>
+<ul>
+<li>购买的是资源包，相当于存储空间，而另外的一些服务，如外网请求流量，图片压缩等功能，需要另外计费，因此资源包购买后，依然会继续扣除费用，可以账户里充值下，防止欠费。</li>
+<li>资源包类型选择标准(LRS)服务即可，其他的都是些业务相关的服务</li>
+<li>地域方面，购买中国大陆通用</li>
+</ul>
+<p>完成订单后，就可以进入OSS对应的工作台了。</p>
+<h2 id="创建空间"><a href="#创建空间" class="headerlink" title="创建空间"></a>创建空间</h2><p>在工作台创建bucket</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200906100713.webp" alt="选择创建bucket"> </p>
+<p>在配置页面中，因为仅仅是想做个博客图床，因此额外服务能不选的都不选，防止额外的收费。<br>其中读写权限选择了私有，这在后面更加具体的配置。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200906100823.webp" alt="创建配置页面"></p>
+<p>创建完成的bucket如下所示：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200906103014.webp" alt="bucket工作台"></p>
+<p>在上图bucket管理工作台目录的功能：</p>
+<ul>
+<li>概览： 查看流量，域名</li>
+<li>文件管理：管理上传的图片，如批量删除</li>
+<li>权限管理： 设置bucket的可访问性，如提供给一个子账号访问权限等</li>
+<li>基础设置： bucket的基础管理，如删除，配置静态页面托管</li>
+<li>其他的暂时没具体了解使用</li>
+</ul>
+<h2 id="配置OSS的访问权限"><a href="#配置OSS的访问权限" class="headerlink" title="配置OSS的访问权限"></a>配置OSS的访问权限</h2><p>此时，bucket创建完成，可以通过阿里云网页，或者OSS访问工具，比如<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/44075.html?spm=a2c4g.11186623.2.29.709b3470qM2uUf#concept-owg-knn-vdb">文档</a>中提供的官方工具ossbrowser,ossutil，或者一些第三方的资源读写工具，例如picgo进行bucket的读写。</p>
+<p>在使用工具访问时，本质是通过调用api来访问bucket，因此需要提供accesskey相关的信息，我们并不想直接生成一个管理员的accesskey，因为管理员的accesskey具有阿里云api的完全访问权限，这很不安全，因此这里先创建一个子账号。</p>
+<p>搜索栏中搜索RAM访问控制，进入RAM控制台,打开人员管理目录下，用户页面</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200906104527.webp" alt="搜索"></p>
+<p>添加用户，选择编程访问</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200906110137.webp" alt="创建用户"></p>
+<p>进入刚创建的用户页面，点击创建accesskey，即可获取用户的AccessKey ID和AccessKey Secret</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200906110507.webp" alt="点击创建accesskey"></p>
+<p>最后一步，选择权限管理，添加个人权限，选择AliyunOSSFullAccess权限策略，进行添加即可</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200906111004.webp" alt="添加权限"></p>
+<p>通过上述步骤，即创建了一个拥有OSS管理权限的子账号，并获取了其accesskey信息。</p>
+<h2 id="其他配置与服务"><a href="#其他配置与服务" class="headerlink" title="其他配置与服务"></a>其他配置与服务</h2><h3 id="读写权限配置"><a href="#读写权限配置" class="headerlink" title="读写权限配置"></a>读写权限配置</h3><p>在创建bucket时，选择了私有的读写权限，因此，任何外网的访问，都需要通过accesskey加上阿里云api进行访问，要想生成的图片让浏览器直接访问，应该进入bucket工作台，权限管理，读写权限配置，将权限修改为公共读，如此，生成的图片在外网可以直接通过url访问，而不需要accsskey获取图片资源。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200906111739.webp" alt="修改读写权限，提供外网直接访问"></p>
+<h3 id="防止盗链"><a href="#防止盗链" class="headerlink" title="防止盗链"></a>防止盗链</h3><p>由于读写权限修改成了公共读，外网只要知道资源的url，就可以直接访问，而不需要accesskey，因此，容易被其他网站直接盗用资源url，导致流量的损失。所以需要进行防止盗链的配置，限制生成的图片url仅仅只能在限定的域名中访问才可生效。</p>
+<p>进入bucket工作台，权限管理，防盗链配置，配置正则的白名单域名，以及设置不允许空referer.此时，非白名单域名就无法访问图片了。当然，如果对方非得想要访问，伪造请求头之类的也是无法防住的。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200906112227.webp" alt="防盗链配置"></p>
+<h1 id="Picgo配置"><a href="#Picgo配置" class="headerlink" title="Picgo配置"></a>Picgo配置</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>因为使用vscode编辑markdown，因此图片上传工具选择vscode的picgo插件，搜索并安装即可</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/6c6f14941ab0b9496ffc186984816aa.webp" alt="picgo安装"></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>打开picgo的extension setting,开始进行配置如下：</p>
+<ul>
+<li>配置当前图床为阿里云<img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1c8f8bcbfe34e081e68b256daefa5ff.webp" alt="当前图床配置"></li>
+<li>配置access信息,此信息在配置阿里云子账号时已经获取<img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/a93f656c8a9d1a8db47867d4cbd5976.webp" alt="access配置"></li>
+<li>配置，地区，存储路径等信息,其中Area，Bucket，Custom Url都可以在bucket控制台概览中看到，而Path则需要自己去文件管理中建立blog/images文件夹.<img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/f1e975200e1d731f159953b5b6a54d0.webp" alt="地区，路径，url配置"></li>
+</ul>
+<p>一些注意事项：</p>
+<ul>
+<li>如果报错了，请检查accesskey和secret中是否有空格，特别是开头部分。</li>
+<li>路径相关的请按照配置来，多出的’/‘等会影响拼接导致报错。</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>常用快捷键：</p>
+<ul>
+<li>ctrl+alt+E 从文件管理器中上传图片，并生成markdown图片链接</li>
+</ul>
+<h1 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h1><p>图片不压缩的话，损耗网络资源太严重，产生很多非必要的费用，而阿里云自带的压缩是按次数收费的，所以找其他压缩工具进行本地压缩。</p>
+<h2 id="选择格式"><a href="#选择格式" class="headerlink" title="选择格式"></a>选择格式</h2><p>选择图片格式为webp，无降级策略，不考虑兼容性问题。<br>webp有出色的压缩比率,如下为百分之90品质的压缩</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/bac822cdfcd54daecd9907ddb88d37d.webp" alt="bac822cdfcd54daecd9907ddb88d37d"></p>
+<p>如下是100%品质的压缩</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1ccf90180bd138c5e7de37dbed8b1d0.webp" alt="1ccf90180bd138c5e7de37dbed8b1d0"></p>
+<p>最终定型，出了首页banner大图为100%品质压缩，其他图片均使用90%webp压缩.</p>
+<h2 id="推荐的压缩工具"><a href="#推荐的压缩工具" class="headerlink" title="推荐的压缩工具"></a>推荐的压缩工具</h2><p>当前使用一个在线无需上传的压缩网站<a target="_blank" rel="noopener" href="https://renzhezhilu.gitee.io/webp2jpg-online/">webp2jpg</a>, 其<a target="_blank" rel="noopener" href="https://github.com/renzhezhilu/webp2jpg-online">github地址</a></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200908005217.webp" alt="微信截图_20200908005217"></p>
+<h1 id="后续计划"><a href="#后续计划" class="headerlink" title="后续计划"></a>后续计划</h1><h2 id="gif录制工具"><a href="#gif录制工具" class="headerlink" title="gif录制工具"></a>gif录制工具</h2><h2 id="图片上传过程中的自动压缩的vscode插件"><a href="#图片上传过程中的自动压缩的vscode插件" class="headerlink" title="图片上传过程中的自动压缩的vscode插件"></a>图片上传过程中的自动压缩的vscode插件</h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Misaka Lee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blog.misaka-net-lwc.top/2021/08/31/20200824-vscode+picgo/">http://blog.misaka-net-lwc.top/2021/08/31/20200824-vscode+picgo/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blog.misaka-net-lwc.top" target="_blank">Misaka Net</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/OSS/">OSS</a><a class="post-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2%E5%B7%A5%E5%85%B7/">博客工具</a></div><div class="post_share"><div class="social-share" data-image="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1599308368179.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/08/31/20200824-VSCode%E7%AC%94%E8%AE%B0/"><img class="prev-cover" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1599308368178.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">VSCode笔记</div></div></a></div><div class="next-post pull-right"><a href="/2021/08/31/20200825-ElementUI%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C/"><img class="next-cover" data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/84095735_p0_master1200.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ElementUI速查手册</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Misaka Lee</div><div class="author-info__description">生活，学习，工作,感悟，心得，思考</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Yukilwc"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Yukilwc" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:misaka1033@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">幻想乡</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">概要</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%8F%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">意义</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91OSS%E8%B4%AD%E4%B9%B0%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">阿里云OSS购买与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%AD%E4%B9%B0"><span class="toc-number">2.1.</span> <span class="toc-text">购买</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%A9%BA%E9%97%B4"><span class="toc-number">2.2.</span> <span class="toc-text">创建空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEOSS%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="toc-number">2.3.</span> <span class="toc-text">配置OSS的访问权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.4.</span> <span class="toc-text">其他配置与服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE"><span class="toc-number">2.4.1.</span> <span class="toc-text">读写权限配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2%E7%9B%97%E9%93%BE"><span class="toc-number">2.4.2.</span> <span class="toc-text">防止盗链</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Picgo%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">Picgo配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">3.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.3.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9"><span class="toc-number">4.</span> <span class="toc-text">图片压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%A0%BC%E5%BC%8F"><span class="toc-number">4.1.</span> <span class="toc-text">选择格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7"><span class="toc-number">4.2.</span> <span class="toc-text">推荐的压缩工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E7%BB%AD%E8%AE%A1%E5%88%92"><span class="toc-number">5.</span> <span class="toc-text">后续计划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#gif%E5%BD%95%E5%88%B6%E5%B7%A5%E5%85%B7"><span class="toc-number">5.1.</span> <span class="toc-text">gif录制工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9%E7%9A%84vscode%E6%8F%92%E4%BB%B6"><span class="toc-number">5.2.</span> <span class="toc-text">图片上传过程中的自动压缩的vscode插件</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/08/31/20200907-Nuxtjs%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" title="Nuxtjs服务端渲染项目部署"><img data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1599308368190.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nuxtjs服务端渲染项目部署"/></a><div class="content"><a class="title" href="/2021/08/31/20200907-Nuxtjs%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" title="Nuxtjs服务端渲染项目部署">Nuxtjs服务端渲染项目部署</a><time datetime="2021-08-31T16:38:14.409Z" title="发表于 2021-08-31 16:38:14">2021-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/08/31/20200909-nuxtjs%E7%AC%94%E8%AE%B0/" title="Nuxtjs笔记"><img data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1599308368193.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nuxtjs笔记"/></a><div class="content"><a class="title" href="/2021/08/31/20200909-nuxtjs%E7%AC%94%E8%AE%B0/" title="Nuxtjs笔记">Nuxtjs笔记</a><time datetime="2021-08-31T16:38:14.409Z" title="发表于 2021-08-31 16:38:14">2021-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/08/31/20200909-%E5%B7%A5%E5%85%B7%E6%94%B6%E9%9B%86%E6%B1%87%E6%80%BB/" title="工具收集汇总"><img data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1599308368197.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="工具收集汇总"/></a><div class="content"><a class="title" href="/2021/08/31/20200909-%E5%B7%A5%E5%85%B7%E6%94%B6%E9%9B%86%E6%B1%87%E6%80%BB/" title="工具收集汇总">工具收集汇总</a><time datetime="2021-08-31T16:38:14.409Z" title="发表于 2021-08-31 16:38:14">2021-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/08/31/20200913-%E5%8E%9F%E7%A5%9E%E7%AC%94%E8%AE%B0/" title="原神笔记"><img data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/2020082815550918957.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="原神笔记"/></a><div class="content"><a class="title" href="/2021/08/31/20200913-%E5%8E%9F%E7%A5%9E%E7%AC%94%E8%AE%B0/" title="原神笔记">原神笔记</a><time datetime="2021-08-31T16:38:14.409Z" title="发表于 2021-08-31 16:38:14">2021-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/08/31/20200914-Vue%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="Vue表单校验的解决方案"><img data-lazy-src="https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1a73da7cd880d6d72411dd8d98fbd64a29d5b923.jpg@518w_1e_1c.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue表单校验的解决方案"/></a><div class="content"><a class="title" href="/2021/08/31/20200914-Vue%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="Vue表单校验的解决方案">Vue表单校验的解决方案</a><time datetime="2021-08-31T16:38:14.409Z" title="发表于 2021-08-31 16:38:14">2021-08-31</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://blog-misaka1033.oss-cn-beijing.aliyuncs.com/blog/images/1599308368179.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Misaka Lee</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
